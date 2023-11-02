@@ -9,7 +9,6 @@ export default async function useDirectory(files: any) {
           item.type = 'submenu'
         } else {
           item.type = 'menu'
-          
         }
         tree.push(item)
       }
