@@ -1,0 +1,25 @@
+.containerWrpaer {
+  position: fixed;
+  width: calc(100vw - 200px);
+  left: 200px;
+  top: 50px;
+  height: calc(100vh - 50px);
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 15px;
+  pre {
+    margin-bottom: 16px;
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    word-wrap: normal;
+    background-color: #f6f8fa;
+    border-radius: 3px;
+    line-height: 25px;
+  }
+  ol,
+  li {
+    margin-left: 10px;
+  }
+}

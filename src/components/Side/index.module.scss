@@ -1,0 +1,10 @@
+.sideWraper {
+  width: 200px;
+  position: fixed;
+  left: 0;
+  top: 50px;
+  height: calc(100vh - 50px);
+  box-shadow:
+    rgba(0, 0, 0, 0.12) 0px 2px 4px,
+    rgba(0, 0, 0, 0.04) 0px 0px 6px;
+}
