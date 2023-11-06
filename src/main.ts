@@ -1,5 +1,4 @@
 import { createApp } from 'vue'
-import './style.css'
 import App from './App'
 import ViewUIPlus from 'view-ui-plus'
 import VMdPreview from '@kangc/v-md-editor/lib/preview'

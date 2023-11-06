@@ -4,9 +4,6 @@ export default defineComponent({
   render() {
     return (
       <div class={styles.header}>
-
-        
-        
         <div> 知识总结</div>
       </div>
     )

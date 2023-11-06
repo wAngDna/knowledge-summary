@@ -5,9 +5,6 @@ import Container from '@/components/Container'
 export default defineComponent({
   setup() {
     const currentFile = ref({})
-
-
-    
     const onChangeFile = (file: any) => {
       currentFile.value = file
     }
