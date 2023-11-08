@@ -13,8 +13,10 @@
     "lint:stage": "lint-staged",
     "commit": "git-cz",
     "prepare": "husky install",
-    "commitlint": "commitlint --edit"
+    "commitlint": "commitlint --edit",
+    "deploy": "gh-pages -d dist"
   },
+  "homepage": "http://wAngDna.github.io/knowledge-summary",
   "lint-staged": {
     "*": "prettier --write",
     "*.{vue,ts}": "eslint --fix",

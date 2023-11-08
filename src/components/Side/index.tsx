@@ -18,7 +18,7 @@ export default defineComponent({
   props: props,
   async setup(props, { emit }) {
     const { menus } = await useDirectory(files)
-
+    console.log(props)
     const changeFile = async (file: FileType) => {
       const { fileRaw } = await useFileContent(file)
       emit('changeFile', fileRaw)

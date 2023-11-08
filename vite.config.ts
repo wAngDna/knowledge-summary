@@ -9,6 +9,7 @@ export default defineConfig({
       '@': '/src'
     }
   },
+  assetsInclude: ['./src/files/**'],
   css: {
     preprocessorOptions: {}
   }
