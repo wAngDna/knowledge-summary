@@ -7,19 +7,26 @@
   overflow-y: auto;
   box-sizing: border-box;
   padding: 15px;
+  line-height: 30px;
+
   pre {
     margin-bottom: 16px;
     padding: 16px;
     overflow: auto;
     font-size: 85%;
-    line-height: 1.45;
     word-wrap: normal;
     background-color: #f6f8fa;
     border-radius: 3px;
     line-height: 25px;
   }
+
   ol,
   li {
     margin-left: 10px;
+  }
+
+  table {
+    background: #f6f8fa;
+    padding: 12px;
   }
 }

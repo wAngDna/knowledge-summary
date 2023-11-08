@@ -28,6 +28,7 @@
   "dependencies": {
     "@kangc/v-md-editor": "^2.3.17",
     "Prism": "^2.0.0",
+    "babel-runtime": "^6.26.0",
     "fast-glob": "^3.3.1",
     "highlight.js": "^11.8.0",
     "sass": "^1.69.5",
@@ -42,6 +43,7 @@
     "@tsconfig/node18": "18.2.0",
     "@types/jsdom": "^21.1.1",
     "@types/node": "20.4.2",
+    "@types/vue-markdown": "^2.2.4",
     "@vitejs/plugin-vue": "^4.2.3",
     "@vitejs/plugin-vue-jsx": "^3.0.1",
     "@vue/eslint-config-prettier": "8.0.0",
