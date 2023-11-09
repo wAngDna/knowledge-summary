@@ -12,8 +12,3 @@ await $`git remote get-url --all github`.catch(async (out: ProcessOutput) => {
     throw new Error(out.stdout)
   })
 })
-
-await $`git push github master`.catch(async (out: ProcessOutput) => {
-  printObject(out)
-  throw new Error(out.stdout)
-})

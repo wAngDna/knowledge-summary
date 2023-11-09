@@ -1,7 +1,8 @@
 #!/usr/bin/env zx
 
 import { $ } from 'zx'
-
+import type { ProcessOutput } from 'zx'
+import { printObject } from './utils'
 console.log('开始执行代码质量评估...\n')
 
 await import('./check').catch((out) => {
@@ -29,3 +30,8 @@ await import('./syncgithub').catch((out) => {
 console.log('github push success,  创建commit...\n')
 
 await $`git add .`
+
+await $`git push github master`.catch(async (out: ProcessOutput) => {
+  printObject(out)
+  throw new Error(out.stdout)
+})
