@@ -16,7 +16,7 @@
     "commitlint": "commitlint --edit",
     "deploy": "gh-pages -d dist -r https://github.com/wAngDna/knowledge-summary.git -b gh-pages"
   },
-  "homepage": "http://wAngDna.github.io/knowledge-summary",
+  "homepage": "https://wAngDna.github.io/knowledge-summary",
   "lint-staged": {
     "*": "prettier --write",
     "*.{vue,ts}": "eslint --fix",
