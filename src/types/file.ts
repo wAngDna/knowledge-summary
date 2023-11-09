@@ -4,5 +4,6 @@ export type FileType = {
   parentId: String
   type: String
   children: any[]
-  fileUrl: URL
+  fileUrl: any
+  default: String
 }

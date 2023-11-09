@@ -4,12 +4,12 @@ import Side from '@/components/Side'
 import Container from '@/components/Container'
 export default defineComponent({
   setup() {
-    const currentFile = ref({})
+    const fileContent = ref('')
     const onChangeFile = (file: any) => {
-      currentFile.value = file
+      fileContent.value = file
     }
     return {
-      currentFile,
+      fileContent,
       onChangeFile
     }
   },
@@ -17,7 +17,7 @@ export default defineComponent({
     return (
       <>
         <Header />
-        <Container file={this.currentFile} />
+        <Container fileContent={this.fileContent} />
         <Suspense>
           <Side onChangeFile={(file: any) => this.onChangeFile(file)} />
         </Suspense>

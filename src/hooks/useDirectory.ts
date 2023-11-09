@@ -1,3 +1,4 @@
+// import useFileContent from '@/hooks/useFileContent'
 export default async function useDirectory(files: any) {
   const listToTree = (arr: any[], rootValue: String) => {
     const tree: any[] = []
@@ -34,7 +35,7 @@ export default async function useDirectory(files: any) {
               id: filesArr[i],
               parentId: filesArr[i - 1],
               name: filesArr[i],
-              fileUrl: new URL(key, import.meta.url)
+              fileUrl: await files[key]()
             })
           }
         }

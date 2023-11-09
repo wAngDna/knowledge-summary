@@ -7,7 +7,7 @@ import useFileContent from '@/hooks/useFileContent'
 import { FileType } from '@/types/file'
 
 const files = import.meta.glob('../../files/**/*')
-
+console.log(files)
 const props = {
   onChangeFile: {
     type: Function,
@@ -18,16 +18,16 @@ export default defineComponent({
   props: props,
   async setup(props, { emit }) {
     const { menus } = await useDirectory(files)
-    console.log(props)
     const changeFile = async (file: FileType) => {
-      const { fileRaw } = await useFileContent(file)
-      emit('changeFile', fileRaw)
+      const content = await useFileContent(file)
+      emit('changeFile', content)
     }
     const menuItemClick = async (file: FileType) => {
-      const { fileRaw } = await useFileContent(file)
-      emit('changeFile', fileRaw)
+      const content = await useFileContent(file)
+      emit('changeFile', content)
     }
     return {
+      props,
       menus,
       changeFile,
       menuItemClick
