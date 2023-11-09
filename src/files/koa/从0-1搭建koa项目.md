@@ -197,4 +197,99 @@
 
 ### 五、使用mongoose操作MongoDB
 
+1. 安装mongoose依赖
+
+   1. ```typescript
+      npm i mongoose @types/mongoose
+      ```
+
+2. 在db/schema/SchemaUser.ts创建用户集合字段声明
+
+   1. ```typescript
+      import { Schema } from 'mongoose'
+      export const UserSchema = new Schema({
+          username: {
+              type: String,
+              unique: true,
+              require: true
+          },
+          password: {
+              type: String,
+              require: true
+          },
+          email: {
+              type: String,
+              require: true
+          },
+          user_id: {
+              type: String,
+              require: true
+          },
+          createAt: {
+              type: Date,
+              default: Date.now
+          },
+          usertype: {
+              Type: String,
+          }
+      })
+      ```
+
+3. 在db/model/ModelUser.ts定义Model
+
+   1. ```typescript
+      import mongoose from 'mongoose'
+      import { UserSchema } from '../schema/SchemaUser'
+      export const UserModel = mongoose.model('User', UserSchema)
+      ```
+
+4. 在controller/IndexController.ts操作数据
+
+   1. ```typescript
+      import { Context } from "koa";
+      import { UserModel } from '../db/model/ModelUser'
+      
+      import mongoose from 'mongoose';
+      mongoose.connect('mongodb+srv://root:admin@cluster0.lbntp0i.mongodb.net/')
+      
+      function guid() {
+          const S4 = () => {
+              return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+          };
+          return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4()
+          );
+      }
+      class IndexController {
+          async getUserList(ctx: Context) {
+              ctx.body = await UserModel.find({})
+          }
+          async createUser(ctx: Context) {
+              UserModel.create({
+                  username: 'saf',
+                  password: '231',
+                  email: '12@qq.com',
+                  user_id: guid()
+              })
+              ctx.body = '成功'
+          }
+      }
+      
+      export default new IndexController
+      ```
+
+5. 在router/index.ts中注册路由
+
+   1. ```typescript
+      import koaRouter from 'koa-router'
+      import IndexController from '../controller/IndexController'
+      const router = new koaRouter({ prefix: '/admin' })
+      
+      router
+          .get('/userList', IndexController.getUserList)
+          .get('/createUser', IndexController.createUser)
+      export default router
+      ```
+
+### 六、JWT认证
+
 1. 
