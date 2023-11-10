@@ -3,8 +3,7 @@ import { Command } from 'commander'
 import { $ } from 'zx'
 import type { ProcessOutput } from 'zx'
 import { actions, inquirers } from './configs/commander'
-import { printObject } from './utils'
-const GitHubURL = 'https://github.com/wAngDna/knowledge-summary.git'
+import { printObject, chalkHex } from './utils'
 const program = new Command()
 Reflect.ownKeys(actions).forEach((action: any) => {
   program
@@ -28,55 +27,31 @@ program.parse()
  */
 const pushGit = async (origin: 'gitee' | 'github' | 'all') => {
   if (origin === 'github') {
-    // 如果没有名叫 github 的远程仓库则自动关联一个
-    await $`git remote get-url --all github`.catch(async (out: ProcessOutput) => {
-      printObject(out)
-      console.log('remote github now...\n')
-      // 关联github仓库
-      await $`git remote add github ${GitHubURL}`.catch((out: ProcessOutput) => {
-        printObject(out)
-        throw new Error(out.stdout)
-      })
-      // 提交到github master
-      await $`git push github master`.catch(async (out: ProcessOutput) => {
-        printObject(out)
-        throw new Error(out.stdout)
-      })
-    })
-    // 如果有 则直接提交到github master
+    chalkHex('pushed github...')
     await $`git push github master`.catch(async (out: ProcessOutput) => {
       printObject(out)
       throw new Error(out.stdout)
     })
+    chalkHex('push github success...')
   } else if (origin === 'gitee') {
+    chalkHex('pushed gitee...')
     await $`git push origin master`.catch(async (out: ProcessOutput) => {
       printObject(out)
       throw new Error(out.stdout)
     })
+    chalkHex('push gitee success...')
   } else if (origin === 'all') {
+    chalkHex('pushed gitee and github...')
     await $`git push origin master`.catch(async (out: ProcessOutput) => {
       printObject(out)
       throw new Error(out.stdout)
     })
-    // 如果没有名叫 github 的远程仓库则自动关联一个
-    await $`git remote get-url --all github`.catch(async (out: ProcessOutput) => {
-      printObject(out)
-      console.log('remote github now...\n')
-      // 关联github仓库
-      await $`git remote add github ${GitHubURL}`.catch((out: ProcessOutput) => {
-        printObject(out)
-        throw new Error(out.stdout)
-      })
-      // 提交到github master
-      await $`git push github master`.catch(async (out: ProcessOutput) => {
-        printObject(out)
-        throw new Error(out.stdout)
-      })
-    })
+    chalkHex('push gitee success...')
     // 如果有 则直接提交到github master
     await $`git push github master`.catch(async (out: ProcessOutput) => {
       printObject(out)
       throw new Error(out.stdout)
     })
+    chalkHex('push github success...')
   }
 }

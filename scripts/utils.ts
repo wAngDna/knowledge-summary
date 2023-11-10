@@ -12,6 +12,6 @@ export function printObject(
 
 export const chalkHex = (text: String) => {
   console.log('\n')
-  console.log(chalk.hex('#DEADED').bold(text))
+  console.log(chalk.hex('#67C23A').bold(text))
   console.log('\n')
 }
