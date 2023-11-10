@@ -1,5 +1,5 @@
 import { ProcessOutput } from 'zx/core'
-
+import { chalk } from 'zx'
 export function printObject(
   object: Record<string, unknown> | ProcessOutput,
   method: 'log' | 'warn' | 'error' = 'log'
@@ -8,4 +8,10 @@ export function printObject(
     // eslint-disable-next-line no-console
     console[method](`${key}:\n${value}\n`)
   }
+}
+
+export const chalkHex = (text: String) => {
+  console.log('\n')
+  console.log(chalk.hex('#DEADED').bold(text))
+  console.log('\n')
 }

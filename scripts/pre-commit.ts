@@ -1,26 +1,26 @@
 #!/usr/bin/env zx
 
 import { $ } from 'zx'
-import type { ProcessOutput } from 'zx'
-import { printObject } from './utils'
-console.log('开始执行代码质量评估...\n')
+import { chalkHex } from './utils'
+
+chalkHex('开始执行代码质量评估...')
 
 await import('./check').catch((out) => {
   throw new Error('代码质量评估失败, 请检查代码.')
 })
 
-console.log('检测通过, run build now...\n')
+chalkHex('检测通过, run build now...')
 
 await import('./build').catch((out) => {
   throw new Error('代码打包失败, 请修复.')
 })
 
-console.log('build success, run deploy now...\n')
+chalkHex('Build success, run deploy now...')
 
 await import('./deploy').catch((out) => {
   throw new Error('Git Pages上传失败, 请排查原因.')
 })
 
-console.log('deploy success,  Sync GitHub now...\n')
+chalkHex('Deploy success, create commit...')
 
 await $`git add .`

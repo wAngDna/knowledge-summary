@@ -20,6 +20,8 @@
     "push-github": "tsno run ./scripts/syncgithub.ts github"
   },
   "homepage": "https://wAngDna.github.io/knowledge-summary",
+  "github": "https://github.com/wAngDna/knowledge-summary.git",
+  "gitee": "https://gitee.com/codeinglin/knowledge-summaryp-review.git",
   "lint-staged": {
     "*": "prettier --write",
     "*.{vue,ts}": "eslint --fix",
@@ -58,6 +60,7 @@
     "@vue/eslint-config-typescript": "^11.0.3",
     "@vue/test-utils": "2.4.1",
     "@vue/tsconfig": "^0.4.0",
+    "chalk": "^5.3.0",
     "commitizen": "4.3.0",
     "cspell": "6.31.2",
     "cypress": "12.17.2",

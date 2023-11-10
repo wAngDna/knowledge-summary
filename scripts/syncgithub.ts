@@ -22,6 +22,10 @@ Reflect.ownKeys(actions).forEach((action: any) => {
 })
 program.parse()
 
+/**
+ * 提交代码到git仓库
+ * @param {*} origin
+ */
 const pushGit = async (origin: 'gitee' | 'github' | 'all') => {
   if (origin === 'github') {
     // 如果没有名叫 github 的远程仓库则自动关联一个
