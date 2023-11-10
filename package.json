@@ -17,7 +17,8 @@
     "deploy": "gh-pages -d dist -r https://github.com/wAngDna/knowledge-summary.git -b gh-pages",
     "push": "tsno run ./scripts/syncgithub.ts all",
     "push-gitee": "tsno run ./scripts/syncgithub.ts gitee",
-    "push-github": "tsno run ./scripts/syncgithub.ts github"
+    "push-github": "tsno run ./scripts/syncgithub.ts github",
+    "deploy-pages": "tsno run ./scripts/deploy.ts"
   },
   "homepage": "https://wAngDna.github.io/knowledge-summary",
   "github": "https://github.com/wAngDna/knowledge-summary.git",

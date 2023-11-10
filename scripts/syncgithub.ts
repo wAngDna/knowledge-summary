@@ -27,31 +27,31 @@ program.parse()
  */
 const pushGit = async (origin: 'gitee' | 'github' | 'all') => {
   if (origin === 'github') {
-    chalkHex('pushed github...')
+    chalkHex('Pushed github...')
     await $`git push github master`.catch(async (out: ProcessOutput) => {
       printObject(out)
       throw new Error(out.stdout)
     })
-    chalkHex('push github success...')
+    chalkHex('Push github success...')
   } else if (origin === 'gitee') {
-    chalkHex('pushed gitee...')
+    chalkHex('Pushed gitee...')
     await $`git push origin master`.catch(async (out: ProcessOutput) => {
       printObject(out)
       throw new Error(out.stdout)
     })
-    chalkHex('push gitee success...')
+    chalkHex('Push gitee success...')
   } else if (origin === 'all') {
-    chalkHex('pushed gitee and github...')
+    chalkHex('Pushed gitee and github...')
     await $`git push origin master`.catch(async (out: ProcessOutput) => {
       printObject(out)
       throw new Error(out.stdout)
     })
-    chalkHex('push gitee success...')
+    chalkHex('Push gitee success...')
     // 如果有 则直接提交到github master
     await $`git push github master`.catch(async (out: ProcessOutput) => {
       printObject(out)
       throw new Error(out.stdout)
     })
-    chalkHex('push github success...')
+    chalkHex('Push github success...')
   }
 }
