@@ -23,15 +23,4 @@ await import('./deploy').catch((out) => {
 
 console.log('deploy success,  Sync GitHub now...\n')
 
-await import('./syncgithub').catch((out) => {
-  throw new Error('GitHub Push失败, 请排查原因.')
-})
-
-console.log('github push success,  创建commit...\n')
-
 await $`git add .`
-
-await $`git push github master`.catch(async (out: ProcessOutput) => {
-  printObject(out)
-  throw new Error(out.stdout)
-})
