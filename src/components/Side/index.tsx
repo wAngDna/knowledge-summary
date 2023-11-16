@@ -5,18 +5,12 @@ import MenuItems from './components/MenuItems'
 import useDirectory from '@/hooks/useDirectory'
 import useFileContent from '@/hooks/useFileContent'
 import { FileType } from '@/types/file'
-
 const files = import.meta.glob('../../files/**/*')
-console.log(files)
-const props = {
-  onChangeFile: {
-    type: Function,
-    default: () => {}
-  }
+interface IProps {
+  onChangeFile(content: string): void
 }
 export default defineComponent({
-  props: props,
-  async setup(props, { emit }) {
+  async setup(props: IProps, { emit }) {
     const { menus } = await useDirectory(files)
     const changeFile = async (file: FileType) => {
       const content = await useFileContent(file)
