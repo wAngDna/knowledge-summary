@@ -6,10 +6,11 @@ import githubTheme from '@kangc/v-md-editor/lib/theme/github.js'
 import Prism from 'prismjs'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/atom-one-dark-reasonable.css'
+import router from './router'
 VMdPreview.use(githubTheme, {
   Prism,
   Hljs: hljs
 })
 import 'view-ui-plus/dist/styles/viewuiplus.css'
 const app = createApp(App)
-app.use(ViewUIPlus).use(VMdPreview).mount('#app')
+app.use(router).use(ViewUIPlus).use(VMdPreview).mount('#app')

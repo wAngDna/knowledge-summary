@@ -24,7 +24,7 @@
   "github": "https://github.com/wAngDna/knowledge-summary.git",
   "gitee": "https://gitee.com/codeinglin/knowledge-summaryp-review.git",
   "lint-staged": {
-    "*": "prettier --write",
+    "*.{html,vue,ts,jsx,tsx,css,sass,scss}": "prettier --write",
     "*.{vue,ts}": "eslint --fix",
     "*.{html,vue,css,sass,scss}": "stylelint --fix"
   },
@@ -44,7 +44,8 @@
     "Prism": "^2.0.0",
     "sass": "^1.69.5",
     "view-ui-plus": "^1.3.14",
-    "vue": "^3.3.4"
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@commitlint/cli": "17.6.7",
