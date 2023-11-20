@@ -26,7 +26,7 @@
   "lint-staged": {
     "*.{html,vue,ts,jsx,tsx,css,sass,scss}": "prettier --write",
     "*.{vue,ts}": "eslint --fix",
-    "*.{html,vue,css,sass,scss}": "stylelint --fix"
+    "*.{html,vue,css,sass,scss}": "stylelint --fix --custom-syntax postcss-scss"
   },
   "config": {
     "commitizen": {
